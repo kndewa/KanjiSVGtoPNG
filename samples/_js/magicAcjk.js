@@ -224,7 +224,7 @@ function generateAnimatedGifFromSvg(s,size,background,delay,dec,show,save)
 					// if background parameter is "transparent", draw transparent strokes
 					// else draw grey strokes
 					if (background=="transparent") paths[k2].fill="transparent";
-					else paths[k2].fill="#ccc";
+					else paths[k2].fill="#000";
 				}
 				else paths[k2].fill="#000";
 			}
@@ -474,512 +474,512 @@ function generateSequencePngUsingCanvas(paths,medians,background,mmah,size)
 			}
 			cx.lineTo(x0,y0); // sometimes not necessary, but it doesn't matter
 			if (k2==0) cx.fillStyle="#000";
-			else if (k<k2) cx.fillStyle="#666";
+			else if (k<k2) cx.fillStyle="#000";
 			else cx.fillStyle="#e7e7e7";
 			cx.fill();
 		}
-		if (k2)
-		{
-			color="#77f";
-			points=[];
-			while (m=r2.exec(medians[k2-1].d))
-			{
-				if (mmah) points.push({x:parseInt(m[1]),y:-parseInt(m[2])+900});
-				else points.push({x:parseInt(m[1]),y:parseInt(m[2])});
-			}
-			points=reducePointsNum(points);
-			km3=points.length;
-			if (km3>0)
-			{
-				x0=points[0].x+xi;
-				y0=points[0].y+yi;
-				cx.beginPath();
-				cx.arc(x0,y0,radius,0,2*Math.PI);
-				cx.fillStyle="#0f6";
-				cx.fill();
-				if (km3>1)
-				{
-					x1=points[1].x+xi;
-					y1=points[1].y+yi;
-					angle0=Math.atan2(y1-y0,x1-x0);
-					angle0=Math.round(360/(2*Math.PI))*angle0;
-					sloopType0=[];
-					if ((Math.abs(angle0)<30)||(Math.abs(angle0)>150))
-					{
-						sloopType0[0]="H";
-					}
-					else if ((Math.abs(angle0)>60)&&(Math.abs(angle0)<120))
-					{
-						sloopType0[0]="V";
-					}
-					else
-					{
-						sloopType0[0]="O";
-					}
-					if (x1>x0) sloopType0[1]="R";
-					else sloopType0[1]="L";
-					if (y1>y0) sloopType0[2]="B";
-					else sloopType0[2]="T";
-					xm0=points[km3-1].x+xi;
-					ym0=points[km3-1].y+yi;
-					xm1=points[km3-2].x+xi;
-					ym1=points[km3-2].y+yi;
-					angleM=Math.atan2(ym0-ym1,xm0-xm1);
-					angleM=Math.round(360/(2*Math.PI))*angleM;
-					mM=minMax(points);
-					sloopTypeM=[];
-					if ((Math.abs(angleM)<30)||(Math.abs(angleM)>150))
-					{
-						sloopTypeM[0]="H";
-					}
-					else if ((Math.abs(angleM)>60)&&(Math.abs(angleM)<120))
-					{
-						sloopTypeM[0]="V";
-					}
-					else
-					{
-						sloopTypeM[0]="O";
-					}
-					if (xm0>xm1) sloopTypeM[1]="R";
-					else sloopTypeM[1]="L";
-					if (ym0>ym1) sloopTypeM[2]="B";
-					else sloopTypeM[2]="T";
-					a0=0;
-					b0=0;
-					reducX=0;
-					reducY=0;
-					reducXT="";
-					reducYT="";
-					color="#f77";
-					//if (km3>5) color="#f93";
+		// if (k2)
+		// {
+		// 	color="#77f";
+		// 	points=[];
+		// 	while (m=r2.exec(medians[k2-1].d))
+		// 	{
+		// 		if (mmah) points.push({x:parseInt(m[1]),y:-parseInt(m[2])+900});
+		// 		else points.push({x:parseInt(m[1]),y:parseInt(m[2])});
+		// 	}
+		// 	points=reducePointsNum(points);
+		// 	km3=points.length;
+		// 	if (km3>0)
+		// 	{
+		// 		x0=points[0].x+xi;
+		// 		y0=points[0].y+yi;
+		// 		cx.beginPath();
+		// 		cx.arc(x0,y0,radius,0,2*Math.PI);
+		// 		cx.fillStyle="#0f6";
+		// 		cx.fill();
+		// 		if (km3>1)
+		// 		{
+		// 			x1=points[1].x+xi;
+		// 			y1=points[1].y+yi;
+		// 			angle0=Math.atan2(y1-y0,x1-x0);
+		// 			angle0=Math.round(360/(2*Math.PI))*angle0;
+		// 			sloopType0=[];
+		// 			if ((Math.abs(angle0)<30)||(Math.abs(angle0)>150))
+		// 			{
+		// 				sloopType0[0]="H";
+		// 			}
+		// 			else if ((Math.abs(angle0)>60)&&(Math.abs(angle0)<120))
+		// 			{
+		// 				sloopType0[0]="V";
+		// 			}
+		// 			else
+		// 			{
+		// 				sloopType0[0]="O";
+		// 			}
+		// 			if (x1>x0) sloopType0[1]="R";
+		// 			else sloopType0[1]="L";
+		// 			if (y1>y0) sloopType0[2]="B";
+		// 			else sloopType0[2]="T";
+		// 			xm0=points[km3-1].x+xi;
+		// 			ym0=points[km3-1].y+yi;
+		// 			xm1=points[km3-2].x+xi;
+		// 			ym1=points[km3-2].y+yi;
+		// 			angleM=Math.atan2(ym0-ym1,xm0-xm1);
+		// 			angleM=Math.round(360/(2*Math.PI))*angleM;
+		// 			mM=minMax(points);
+		// 			sloopTypeM=[];
+		// 			if ((Math.abs(angleM)<30)||(Math.abs(angleM)>150))
+		// 			{
+		// 				sloopTypeM[0]="H";
+		// 			}
+		// 			else if ((Math.abs(angleM)>60)&&(Math.abs(angleM)<120))
+		// 			{
+		// 				sloopTypeM[0]="V";
+		// 			}
+		// 			else
+		// 			{
+		// 				sloopTypeM[0]="O";
+		// 			}
+		// 			if (xm0>xm1) sloopTypeM[1]="R";
+		// 			else sloopTypeM[1]="L";
+		// 			if (ym0>ym1) sloopTypeM[2]="B";
+		// 			else sloopTypeM[2]="T";
+		// 			a0=0;
+		// 			b0=0;
+		// 			reducX=0;
+		// 			reducY=0;
+		// 			reducXT="";
+		// 			reducYT="";
+		// 			color="#f77";
+		// 			//if (km3>5) color="#f93";
 					
-					if (0)
-					{
-					}
+		// 			if (0)
+		// 			{
+		// 			}
 					
-					/////////////////////////////
-					// sloopType0[0]=="H" section
-					/////////////////////////////
+		// 			/////////////////////////////
+		// 			// sloopType0[0]=="H" section
+		// 			/////////////////////////////
 					
-					else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="H"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							if ((km3>4)&&(Math.abs(ym0-y0)>2*delta))
-							{
-								// 四4
-								a0=delta*1.125*0.714;
-								b0=-delta*0.714;
-								reducX=delta*1.125*0.714;
-								//reducY=delta*1.714;
-							}
-							else
-							{
-								// ㇐1
-								a0=0;
-								b0=delta;
-								reducX=0;
-								reducY=0;
-							}
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
-						{
-							if (xm0<x0)
-							{
-								// 夕2
-								a0=-delta;
-								b0=delta;
-								reducX=delta;
-								reducY=2*delta;
-							}
-							else
-							{
-								// 寧3
-								a0=0;
-								b0=delta;
-								if (xm0<(mM.xMax+xi)) reducX=delta*0.5+mM.xMax+xi-xm0;
-								else reducX=delta;
-								reducY=0;
-							}
-						}
-						else
-						{
-							a0=0;
-							b0=delta;
-							reducX=0;
-							reducY=0;
-						}
-					}
-					else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="V"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")&&((mM.yMin+yi)<y0))
-						{
-							// 中2
-							a0=0;
-							b0=delta;
-							reducX=delta*1.25;
-							reducY=delta;
-							reducYT="B";
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")&&((mM.xMax-mM.xMin)<delta))
-						{
-							// 十2
-							a0=-delta;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-						else
-						{
-							// ㇖ (今4)
-							a0=0;
-							b0=delta;
-							reducX=delta*1.25;
-							reducY=delta*2;
-						}
-					}
-					else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="O"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
-						{
-							// 名2 完3
-							if (xm0<x0) a0=-delta;  // 名2
-							else a0=0; // 完3 刀1
-							b0=delta;
-							if (xm0<x0) reducX=2*delta; // 名2
-							else if (xm0<(mM.xMax+xi))
-							{
-								if ((mM.yMax-mM.yMin)<(mM.xMax-mM.xMin)/2)
-									reducX=delta*0.5+(mM.xMax+xi-xm0); // 完3 家3
-								else
-									reducX=delta; // 刀1
-							}
-							else reducX=delta; // never?
-							if (xm0<x0) reducY=2*delta; // 名2
-							else if (ym0<(mM.yMax+yi))
-							{
-								if ((mM.yMax-mM.yMin)>(mM.xMax-mM.xMin)/2)
-								{
-									// 刀1
-									reducY=delta*1.5+(mM.yMax+yi-ym0); 
-									reducYT="B";
-								}
-								else reducY=0;
-							}
-							else reducY=0; // 完3
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							if (sloopTypeM[2]=="T")
-							{
-								// 救4
-								a0=0;
-								b0=-delta;
-								reducX=0;
-								reducY=0;
-							}
-							else
-							{
-								// 完1
-								a0=delta*1.25*0.714;
-								b0=-delta*0.714;
-								reducX=0;
-								reducY=0;
-							}
-						}
-						else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="R"))
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-						else
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-					}
+		// 			else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="H"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					if ((km3>4)&&(Math.abs(ym0-y0)>2*delta))
+		// 					{
+		// 						// 四4
+		// 						a0=delta*1.125*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=delta*1.125*0.714;
+		// 						//reducY=delta*1.714;
+		// 					}
+		// 					else
+		// 					{
+		// 						// ㇐1
+		// 						a0=0;
+		// 						b0=delta;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					if (xm0<x0)
+		// 					{
+		// 						// 夕2
+		// 						a0=-delta;
+		// 						b0=delta;
+		// 						reducX=delta;
+		// 						reducY=2*delta;
+		// 					}
+		// 					else
+		// 					{
+		// 						// 寧3
+		// 						a0=0;
+		// 						b0=delta;
+		// 						if (xm0<(mM.xMax+xi)) reducX=delta*0.5+mM.xMax+xi-xm0;
+		// 						else reducX=delta;
+		// 						reducY=0;
+		// 					}
+		// 				}
+		// 				else
+		// 				{
+		// 					a0=0;
+		// 					b0=delta;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="V"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")&&((mM.yMin+yi)<y0))
+		// 				{
+		// 					// 中2
+		// 					a0=0;
+		// 					b0=delta;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta;
+		// 					reducYT="B";
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")&&((mM.xMax-mM.xMin)<delta))
+		// 				{
+		// 					// 十2
+		// 					a0=-delta;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 				else
+		// 				{
+		// 					// ㇖ (今4)
+		// 					a0=0;
+		// 					b0=delta;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta*2;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="H")&&(sloopTypeM[0]=="O"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					// 名2 完3
+		// 					if (xm0<x0) a0=-delta;  // 名2
+		// 					else a0=0; // 完3 刀1
+		// 					b0=delta;
+		// 					if (xm0<x0) reducX=2*delta; // 名2
+		// 					else if (xm0<(mM.xMax+xi))
+		// 					{
+		// 						if ((mM.yMax-mM.yMin)<(mM.xMax-mM.xMin)/2)
+		// 							reducX=delta*0.5+(mM.xMax+xi-xm0); // 完3 家3
+		// 						else
+		// 							reducX=delta; // 刀1
+		// 					}
+		// 					else reducX=delta; // never?
+		// 					if (xm0<x0) reducY=2*delta; // 名2
+		// 					else if (ym0<(mM.yMax+yi))
+		// 					{
+		// 						if ((mM.yMax-mM.yMin)>(mM.xMax-mM.xMin)/2)
+		// 						{
+		// 							// 刀1
+		// 							reducY=delta*1.5+(mM.yMax+yi-ym0); 
+		// 							reducYT="B";
+		// 						}
+		// 						else reducY=0;
+		// 					}
+		// 					else reducY=0; // 完3
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					if (sloopTypeM[2]=="T")
+		// 					{
+		// 						// 救4
+		// 						a0=0;
+		// 						b0=-delta;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
+		// 					else
+		// 					{
+		// 						// 完1
+		// 						a0=delta*1.25*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
+		// 				}
+		// 				else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 				else
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 			}
 					
-					/////////////////////////////
-					// sloopType0[0]=="V" section
-					/////////////////////////////
+		// 			/////////////////////////////
+		// 			// sloopType0[0]=="V" section
+		// 			/////////////////////////////
 					
-					else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="V"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")
-							&&(sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
-						{
-							// 籠19
-							a0=delta*1.25*0.714;
-							b0=-delta*0.714;
-							reducX=delta*(1.25*0.714+1);
-							reducY=delta*(1-0.714);
-						}
-						else
-						{
-							// ㇑1
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-					}
-					else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="H"))
-					{
-						if ((sloopType0[2]=="B")&&(sloopTypeM[1]=="R"))
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=delta*1.25;
-							reducY=delta;
-						}
-						else if ((sloopType0[2]=="B")&&(sloopTypeM[1]=="L"))
-						{
-							// ㇒ (火3)
-							a0=-delta;
-							b0=0;
-							reducX=delta*1.25;
-							reducY=delta;
-						}
-					}
-					else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="O"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							// 母1
-							a0=delta*1.25;
-							b0=0;
-							reducX=delta*1.25;
-							reducY=delta;
-						}
-						else
-						{
-							// ㇒ (今1)
-							a0=-delta;
-							b0=0;
-							reducX=delta*1.25;
-							reducY=delta;
-						}
-					}
+		// 			else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="V"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L")
+		// 					&&(sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
+		// 				{
+		// 					// 籠19
+		// 					a0=delta*1.25*0.714;
+		// 					b0=-delta*0.714;
+		// 					reducX=delta*(1.25*0.714+1);
+		// 					reducY=delta*(1-0.714);
+		// 				}
+		// 				else
+		// 				{
+		// 					// ㇑1
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="H"))
+		// 			{
+		// 				if ((sloopType0[2]=="B")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta;
+		// 				}
+		// 				else if ((sloopType0[2]=="B")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					// ㇒ (火3)
+		// 					a0=-delta;
+		// 					b0=0;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="V")&&(sloopTypeM[0]=="O"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					// 母1
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta;
+		// 				}
+		// 				else
+		// 				{
+		// 					// ㇒ (今1)
+		// 					a0=-delta;
+		// 					b0=0;
+		// 					reducX=delta*1.25;
+		// 					reducY=delta;
+		// 				}
+		// 			}
 					
-					/////////////////////////////
-					// sloopType0[0]=="O" section
-					/////////////////////////////
+		// 			/////////////////////////////
+		// 			// sloopType0[0]=="O" section
+		// 			/////////////////////////////
 					
-					else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="O"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
-							{
-								// 比2
-								a0=delta*1.25*0.714;
-								b0=-delta*0.714;
-								reducX=0;
-								reducY=delta*(1-0.714+0.5);
-							}
-							else
-							{
-								// ㇔ (火2)
-								a0=delta*1.25*0.714;
-								b0=-delta*0.714;
-								reducX=0;
-								reducY=0;
-							}
-						}
-						else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
-						{
-							// ㇒(火1)
-							a0=delta*1.25*0.714;
-							b0=delta*0.714;
-							reducX=0;
-							reducY=0;
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
-						{
-							if ((sloopType0[2]=="T")&&(sloopTypeM[2]=="T"))
-							{
-								// 馬6
-								a0=-delta*1.25*0.714;
-								b0=delta*0.714;
-								reducX=0;
-								reducY=delta*(0.714+1);
-								reducYT="B";
-							}
-							else if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T")&&(xm0>x0))
-							{
-								// 寧5 狗2
-								a0=-delta*0.714;
-								b0=delta*0.714;
-								if ((mM.xMax-mM.xMin)>(mM.yMax-mM.yMin)) // 寧5
-									reducX=-delta*(0.714*2)-2*(mM.xMax+xi-xm0);
-								else // 狗2
-									reducX=0;
-								if ((mM.xMax-mM.xMin)>(mM.yMax-mM.yMin)) // 寧5
-									reducY=0;
-								else // 狗2
-									reducY=delta*(0.714*2)+(mM.yMax+yi-ym0);
-							}
-							else
-							{
-								// 丁2 夕1
-								a0=-delta;
-								b0=0;
-								reducX=delta;
-								reducY=delta;
-							}
-						}
-						else
-						{
-							// 
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-					}
-					else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="H"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							// ㇏ (火4)
-							// 七2
-							// 出2 出4
-							a0=delta*1.25*0.714;
-							b0=-delta*0.714;
-							reducX=delta*1.25*0.714;
-							reducY=delta*(1-0.714);
-						}
-						else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
-						{
-							// ㇒ (家5)
-							a0=delta*1.25*0.714;
-							b0=delta*0.714;
-							reducX=0;
-							reducY=0;
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
-						{
-							// ㇒ (豸4?)
-							// 火3
-							a0=-delta;
-							b0=0;
-							reducX=delta;
-							reducY=delta;
-						}
-						else
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=delta;
-						}
-					}
-					else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="V"))
-					{
-						if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
-						{
-							if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
-							{
-								// 見6 near from ORVR (池6 先5)
-								a0=delta*0.714;
-								b0=-delta*0.714;
-								reducX=delta*1.714;
-								reducY=0;
-							}
-							else
-							{
-								// 出1ja 馬1ja 中3
-								a0=-delta;
-								b0=0;
-								reducX=0;
-								reducY=0;
-							}
+		// 			else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="O"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
+		// 					{
+		// 						// 比2
+		// 						a0=delta*1.25*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=0;
+		// 						reducY=delta*(1-0.714+0.5);
+		// 					}
+		// 					else
+		// 					{
+		// 						// ㇔ (火2)
+		// 						a0=delta*1.25*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
+		// 				}
+		// 				else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					// ㇒(火1)
+		// 					a0=delta*1.25*0.714;
+		// 					b0=delta*0.714;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					if ((sloopType0[2]=="T")&&(sloopTypeM[2]=="T"))
+		// 					{
+		// 						// 馬6
+		// 						a0=-delta*1.25*0.714;
+		// 						b0=delta*0.714;
+		// 						reducX=0;
+		// 						reducY=delta*(0.714+1);
+		// 						reducYT="B";
+		// 					}
+		// 					else if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T")&&(xm0>x0))
+		// 					{
+		// 						// 寧5 狗2
+		// 						a0=-delta*0.714;
+		// 						b0=delta*0.714;
+		// 						if ((mM.xMax-mM.xMin)>(mM.yMax-mM.yMin)) // 寧5
+		// 							reducX=-delta*(0.714*2)-2*(mM.xMax+xi-xm0);
+		// 						else // 狗2
+		// 							reducX=0;
+		// 						if ((mM.xMax-mM.xMin)>(mM.yMax-mM.yMin)) // 寧5
+		// 							reducY=0;
+		// 						else // 狗2
+		// 							reducY=delta*(0.714*2)+(mM.yMax+yi-ym0);
+		// 					}
+		// 					else
+		// 					{
+		// 						// 丁2 夕1
+		// 						a0=-delta;
+		// 						b0=0;
+		// 						reducX=delta;
+		// 						reducY=delta;
+		// 					}
+		// 				}
+		// 				else
+		// 				{
+		// 					// 
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="H"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					// ㇏ (火4)
+		// 					// 七2
+		// 					// 出2 出4
+		// 					a0=delta*1.25*0.714;
+		// 					b0=-delta*0.714;
+		// 					reducX=delta*1.25*0.714;
+		// 					reducY=delta*(1-0.714);
+		// 				}
+		// 				else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					// ㇒ (家5)
+		// 					a0=delta*1.25*0.714;
+		// 					b0=delta*0.714;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					// ㇒ (豸4?)
+		// 					// 火3
+		// 					a0=-delta;
+		// 					b0=0;
+		// 					reducX=delta;
+		// 					reducY=delta;
+		// 				}
+		// 				else
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=delta;
+		// 				}
+		// 			}
+		// 			else if ((sloopType0[0]=="O")&&(sloopTypeM[0]=="V"))
+		// 			{
+		// 				if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
+		// 					{
+		// 						// 見6 near from ORVR (池6 先5)
+		// 						a0=delta*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=delta*1.714;
+		// 						reducY=0;
+		// 					}
+		// 					else
+		// 					{
+		// 						// 出1ja 馬1ja 中3
+		// 						a0=-delta;
+		// 						b0=0;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
 
-						}
-						else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
-						{
-							if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
-							{
-								if (ym0<y0)
-								{
-									// 池3
-									a0=-delta*0.714;
-									b0=-delta*0.714;
-									reducX=0;
-									reducY=delta*0.714;
-								}
-								else
-								{
-									// 池6
-									a0=delta*0.714;
-									b0=-delta*0.714;
-									reducX=delta*1.714;
-									reducY=0;
-								}
-							}
-							else
-							{
-								// 夕3
-								a0=delta*1.25*0.714;
-								b0=-delta*0.714;
-								reducX=0;
-								reducY=0;
-							}
-						}
-						else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-						else
-						{
-							a0=delta*1.25;
-							b0=0;
-							reducX=0;
-							reducY=0;
-						}
-					}
+		// 				}
+		// 				else if ((sloopType0[1]=="R")&&(sloopTypeM[1]=="R"))
+		// 				{
+		// 					if ((sloopType0[2]=="B")&&(sloopTypeM[2]=="T"))
+		// 					{
+		// 						if (ym0<y0)
+		// 						{
+		// 							// 池3
+		// 							a0=-delta*0.714;
+		// 							b0=-delta*0.714;
+		// 							reducX=0;
+		// 							reducY=delta*0.714;
+		// 						}
+		// 						else
+		// 						{
+		// 							// 池6
+		// 							a0=delta*0.714;
+		// 							b0=-delta*0.714;
+		// 							reducX=delta*1.714;
+		// 							reducY=0;
+		// 						}
+		// 					}
+		// 					else
+		// 					{
+		// 						// 夕3
+		// 						a0=delta*1.25*0.714;
+		// 						b0=-delta*0.714;
+		// 						reducX=0;
+		// 						reducY=0;
+		// 					}
+		// 				}
+		// 				else if ((sloopType0[1]=="L")&&(sloopTypeM[1]=="L"))
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 				else
+		// 				{
+		// 					a0=delta*1.25;
+		// 					b0=0;
+		// 					reducX=0;
+		// 					reducY=0;
+		// 				}
+		// 			}
 					
-					/////////////////////////////
-					// complex stroke section
-					/////////////////////////////
+		// 			/////////////////////////////
+		// 			// complex stroke section
+		// 			/////////////////////////////
 
-					else if (km3>5)
-					{
-						// 2nd 九
-						a0=-delta*1.25;
-						b0=delta;
-						reducX=0;
-						reducY=0;
-						color="#70f";
-					}
-					else
-					{
-						a0=0;
-						b0=0;
-						reducX=0;
-						reducY=0;
-						color="#f7f";
-					}
+		// 			else if (km3>5)
+		// 			{
+		// 				// 2nd 九
+		// 				a0=-delta*1.25;
+		// 				b0=delta;
+		// 				reducX=0;
+		// 				reducY=0;
+		// 				color="#70f";
+		// 			}
+		// 			else
+		// 			{
+		// 				a0=0;
+		// 				b0=0;
+		// 				reducX=0;
+		// 				reducY=0;
+		// 				color="#f7f";
+		// 			}
 					
-					if (debug) debug(k2+" km3="+km3+" rx:"+Math.round(reducX)+" ry:"+Math.round(reducY)+" a0:"+Math.round(angle0)+" aM:"+Math.round(angleM)+" "+sloopType0[0]+" "+sloopType0[1]+" "+sloopType0[2]+" "+sloopTypeM[0]+" "+sloopTypeM[1]+" "+sloopTypeM[2]+"<br>",1);
-					points=reducePointsSize(points,reducX,reducY,reducXT,reducYT,delta,mM);
-					for (k3=0;k3<km3;k3++)
-					{
-						points[k3].x=points[k3].x+xi+a0;
-						points[k3].y=points[k3].y+yi+b0;
-					}
-					smooth(cx,points,color,lw);
-					arrow(cx,points[km3-2].x,points[km3-2].y,points[km3-1].x,points[km3-1].y,color,lw);
-				}
-			}
-		}
+		// 			if (debug) debug(k2+" km3="+km3+" rx:"+Math.round(reducX)+" ry:"+Math.round(reducY)+" a0:"+Math.round(angle0)+" aM:"+Math.round(angleM)+" "+sloopType0[0]+" "+sloopType0[1]+" "+sloopType0[2]+" "+sloopTypeM[0]+" "+sloopTypeM[1]+" "+sloopTypeM[2]+"<br>",1);
+		// 			points=reducePointsSize(points,reducX,reducY,reducXT,reducYT,delta,mM);
+		// 			for (k3=0;k3<km3;k3++)
+		// 			{
+		// 				points[k3].x=points[k3].x+xi+a0;
+		// 				points[k3].y=points[k3].y+yi+b0;
+		// 			}
+		// 			smooth(cx,points,color,lw);
+		// 			arrow(cx,points[km3-2].x,points[km3-2].y,points[km3-1].x,points[km3-1].y,color,lw);
+		// 		}
+		// 	}
+		// }
 	}
 	// generate a base64 encoded PNG from the canvas then return it
 	return cn.toDataURL("image/png");

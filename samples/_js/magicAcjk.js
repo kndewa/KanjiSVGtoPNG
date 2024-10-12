@@ -425,7 +425,7 @@ function generateSequencePngUsingCanvas(paths,medians,background,mmah,size)
 	delta=96;
 	km=paths.length;
 	km2=km;
-	w=Math.min(8,km+1);
+	w=Math.min(16,km+1);
 	h=((km+1)>>3)+1;
 	// create a ghost canvas
 	cn=document.createElement('canvas');
@@ -433,7 +433,7 @@ function generateSequencePngUsingCanvas(paths,medians,background,mmah,size)
 	cn.height=size*h;
 	cx=cn.getContext("2d");
 	cx.lineCap="round";
-	if (size!=1024) cx.scale(size/1024,size/1024);
+	if (size != 1024) cx.scale((size * w) / (1024 * w), size / 1024);
 	cx.fillStyle=background;
 	cx.fillRect(0,0,1024*w,1024*h);
 	// draw strokes in the canvas

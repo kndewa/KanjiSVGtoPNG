@@ -176,23 +176,6 @@ For any questions or suggestions, please open an issue or contact the repository
 
 The script generates PNG images where each Kanji character is displayed with its strokes added sequentially, demonstrating the correct stroke order.
 
----
-
-**Note**: Ensure that the input SVG files are correctly formatted and named using their Unicode decimal values (e.g., `36817.svg` for the character with Unicode code point U+8FED).
-
-## Troubleshooting
-
-### Common Issues
-
-- **Missing Dependencies**: Ensure all npm packages are installed.
-- **Permission Errors**: Run the script with appropriate permissions, especially when accessing files in protected directories.
-- **Incorrect File Paths**: Use absolute paths or ensure relative paths are correct.
-
-### Getting Help
-
-- **Check the Console Output**: Error messages are logged to the console.
-- **Open an Issue**: If problems persist, open an issue on the GitHub repository.
-
 ## Version History
 
 - **v1.0.0**: Initial release with SVG to PNG conversion and stroke rendering.

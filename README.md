@@ -197,6 +197,7 @@ The script generates PNG images where each Kanji character is displayed with its
 
 - **v1.0.0**: Initial release with SVG to PNG conversion and stroke rendering.
 
----
+## Known Issues
 
-Happy coding!
+- **Conversion Failure for 38859.svg**: The SVG file `38859.svg` does not convert successfully due to an inherent error within the file. Attempts to process this file result in an error. 
+

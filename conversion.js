@@ -9,7 +9,7 @@ const pLimit = require('p-limit');
 
 const argv = yargs.argv;
 
-const inputDir = argv.input || 'C:/Users/kndew/Documents/Kanji Book/KanjiSVGtoPNG/testSVG';
+const inputDir = argv.input || 'C:/Users/kndew/Documents/Kanji Book/KanjiSVGtoPNG/svgsJa';
 const outputDir = argv.output || 'C:/Users/kndew/Documents/Kanji Book/KanjiSVGtoPNG/outputPNG';
 const concurrency = argv.concurrency || 5;
 
@@ -31,7 +31,7 @@ function processSvgFile(svgFilePath) {
       const options = {
         ignoreAttributes: false,
         attributeNamePrefix: '',
-      };
+      }
       const xmlParser = new XMLParser(options);
       const svgJson = xmlParser.parse(svgContent);
 

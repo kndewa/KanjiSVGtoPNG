@@ -9,8 +9,8 @@ const pLimit = require('p-limit');
 
 const argv = yargs.argv;
 
-const inputDir = argv.input || 'C:/Users/kndew/Documents/Kanji Book/KanjiSVGtoPNG/svgsJa';
-const outputDir = argv.output || 'C:/Users/kndew/Documents/Kanji Book/KanjiSVGtoPNG/outputPNG_grey';
+const inputDir = argv.input || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/svgsJa';
+const outputDir = argv.output || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/outputPNG_grey';;
 const concurrency = argv.concurrency || 5;
 
 // Ensure the output directory exists

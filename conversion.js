@@ -9,8 +9,8 @@ const pLimit = require('p-limit');
 
 const argv = yargs.argv;
 
-const inputDir = argv.input || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/svgsJa';
-const outputDir = argv.output || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/outputPNG';
+const inputDir = argv.input || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/svgsJa/missing';
+const outputDir = argv.output || 'C:/Users/kndew/Documents/Code/KanjiSVGtoPNG/outputPNG/missing';
 const concurrency = argv.concurrency || 5;
 
 // Ensure the output directory exists
@@ -54,7 +54,7 @@ function processSvgFile(svgFilePath) {
         return resolve();
       }
 
-      const numStrokes = paths.length/2;
+      const numStrokes = paths.length;
       if (numStrokes === 0) {
         console.warn(`No strokes found in ${svgFilePath}`);
         return resolve();
